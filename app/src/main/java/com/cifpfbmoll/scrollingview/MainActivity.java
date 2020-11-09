@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,11 +24,10 @@ public class MainActivity extends AppCompatActivity {
         View edit = findViewById(R.id.article_edit);
         edit.setVisibility(View.VISIBLE);
 
-        View edit_button = findViewById(R.id.edit_button);
-        edit_button.setVisibility(View.GONE);
+        Button edit_button = findViewById(R.id.edit_button);
+        edit_button.setText("Save Changes");
+        edit_button.setOnClickListener(this::changeText);
 
-        View change_button = findViewById(R.id.change_button);
-        change_button.setVisibility(View.VISIBLE);
     }
 
     public void changeText(View v){
@@ -40,10 +40,9 @@ public class MainActivity extends AppCompatActivity {
         String edition = edit.getText().toString();
         article.setText(edition);
 
-        View edit_button = findViewById(R.id.edit_button);
-        edit_button.setVisibility(View.VISIBLE);
+        Button edit_button = findViewById(R.id.edit_button);
+        edit_button.setText("Edit text");
+        edit_button.setOnClickListener(this::editText);
 
-        View change_button = findViewById(R.id.change_button);
-        change_button.setVisibility(View.GONE);
     }
 }
